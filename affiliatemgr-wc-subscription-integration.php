@@ -4,12 +4,12 @@
   Plugin Name: Affiliates Manager WooCommerce Subscription Integration
   Plugin URI: https://wpaffiliatemanager.com/affiliates-manager-woocommerce-subscription-integration/
   Description: Process an affiliate commission via Affiliates Manager after a WooCommerce subscription payment.
-  Version: 1.0.1
+  Version: 1.0.2
   Author: wp.insider, affmngr
   Author URI: https://wpaffiliatemanager.com
  */
 
-add_action('processed_subscription_payments_for_order', 'wp_aff_handle_woocommerce_subscription_payment');  //Triggered when a subscription payment is made
+add_action('processed_subscription_payments_for_order', 'wpam_handle_woocommerce_subscription_payment');  //Triggered when a subscription payment is made
 
 function wpam_handle_woocommerce_subscription_payment($order) {
     if (!is_object($order)) {
