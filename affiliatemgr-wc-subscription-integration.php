@@ -4,7 +4,7 @@
   Plugin Name: Affiliates Manager WooCommerce Subscription Integration
   Plugin URI: https://wpaffiliatemanager.com/affiliates-manager-woocommerce-subscription-integration/
   Description: Process an affiliate commission via Affiliates Manager after a WooCommerce subscription payment.
-  Version: 1.0.2
+  Version: 1.0.3
   Author: wp.insider, affmngr
   Author URI: https://wpaffiliatemanager.com
  */
@@ -23,8 +23,12 @@ function wpam_handle_woocommerce_subscription_payment($order) {
     WPAM_Logger::log_debug('WooCommerce Subscription Integration - Total amount: ' . $total . ', Total shipping: ' . $shipping . ', Total tax: ' . $tax);
     $purchaseAmount = $total - $shipping - $tax;
     $wpam_refkey = get_post_meta($order_id, '_wpam_refkey', true);
+    $wpam_id = get_post_meta($order_id, '_wpam_id', true);
+    if(!empty($wpam_id)){
+        $wpam_refkey = $wpam_id;
+    }
     if (empty($wpam_refkey)) {
-        WPAM_Logger::log_debug("WooCommerce Subscription Integration - could not get wpam_refkey from cookie. This is not an affiliate sale");
+        WPAM_Logger::log_debug("WooCommerce Subscription Integration - could not get wpam_id/wpam_refkey from cookie. This is not an affiliate sale");
         return;
     }
     $order_status = $order->status;
