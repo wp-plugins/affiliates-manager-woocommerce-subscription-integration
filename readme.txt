@@ -4,7 +4,7 @@ Donate link: https://wpaffiliatemanager.com/
 Tags: affiliate, affiliates, affiliates manager, integration, woocommerce, checkout, subscription
 Requires at least: 3.8
 Tested up to: 4.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 
 Process an affiliate commission via Affiliates Manager plugin after a WooCommerce subscription payment
@@ -32,6 +32,10 @@ Check the following page for screenshots
 https://wpaffiliatemanager.com/
 
 == Changelog ==
+
+= 1.0.4 =
+* Subscription tracking option is now also integrated with [WooCommerce coupons addon](https://wpaffiliatemanager.com/tracking-affiliate-commission-using-woocommerce-coupons-or-discount-codes/)
+* Rebill payments now also award affiliate commission for it
 
 = 1.0.3 =
 * Made some improvements to the WooCommerce subscription tracking option
